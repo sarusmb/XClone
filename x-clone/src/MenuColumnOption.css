@@ -1,0 +1,27 @@
+.menuColumnOption {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.menuColumnOption:hover {
+   background-color: #d9d7d7;
+   border-radius: 30px;
+   transition: 100ms ease-out;
+}
+
+.menuColumnOption > .MuiSvgIcon-root {
+    padding: 20px;
+}
+
+.menuColumnOption > h2 {
+    font-weight: 500;
+    font-size: 20px;
+    margin-right: 20px;
+
+}
+
+.menuColumnOption--active {
+    font-weight: 800;
+    color: black;
+}
