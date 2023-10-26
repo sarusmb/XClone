@@ -2,6 +2,7 @@
 import './App.css';
 import MenuColumn from './MenuColumn';
 import Feed from './Feed';
+import Widgets from './Widgets';
 
 
 function App() {
@@ -9,7 +10,7 @@ function App() {
     <div className="app">
       <MenuColumn/>
       <Feed/>
-  
+      <Widgets/>
     </div>
   );
 }

@@ -1,15 +1,24 @@
 .feed {
-    flex:0.4;
+    flex: 0.4;
     border-right: 1px solid var(--x_gray);
-    height: 100vh;
     min-width: fit-content;
     overflow-y: scroll;
-
 }
 
 .feed__header {
     position: sticky;
     top: 0;
     background: white;
-    z-index: 50;
+    z-index: 100;
+    border: 1px solid var(--x_gray);
+    padding: 15px 20px;
 }
+
+.feed__header > h2 {
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.feed::-webkit-scrollbar {
+    display: none;
+  }
