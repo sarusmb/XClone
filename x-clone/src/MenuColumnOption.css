@@ -5,7 +5,7 @@
 }
 
 .menuColumnOption:hover {
-   background-color: #d9d7d7;
+   background-color: var(--x_gray);
    border-radius: 30px;
    transition: 100ms ease-out;
 }

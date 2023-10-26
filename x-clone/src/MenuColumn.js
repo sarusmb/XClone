@@ -17,7 +17,7 @@ import { Button } from '@mui/material';
 function MenuColumn() {
   return (
     <div className="menucolumn">
-        <ClearIcon/>
+        <ClearIcon className="menucolumn__XIcon"/>
         <MenuColumnOption active Icon= {HomeIcon} text="Home" />
         <MenuColumnOption Icon= {SearchIcon} text="Explore" />
         <MenuColumnOption Icon= {NotificationsNoneIcon} text="Notifications" />
@@ -28,7 +28,7 @@ function MenuColumn() {
         <MenuColumnOption Icon= {ClearIcon} text="Premium" />
         <MenuColumnOption Icon= {PersonOutlineIcon} text="Profile" />
         <MenuColumnOption Icon= {MoreHorizIcon} text="More" />
-        <Button variant="outlined" className="tweetbutton" fullWidth>Tweet</Button>
+        <Button variant="outlined" className="menucolumn__postButton" fullWidth>Post</Button>
 
 
         
