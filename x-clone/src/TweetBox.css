@@ -24,7 +24,7 @@
 
 .tweetBox__postButton {
     border-radius: 30px !important;
-    background-color: #00acee !important;
+    background-color: var(--twitter_blue) !important;
     border: none !important;
     font-weight: 900 !important;
     text-transform: inherit !important;
