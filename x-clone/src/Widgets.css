@@ -16,6 +16,7 @@
 .widgets__input > input {
     border: none;
     background-color: #f5f8fa;
+    outline: none;
 }
 
 .widgets__searchIcon {

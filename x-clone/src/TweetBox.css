@@ -19,7 +19,13 @@
     border: none;
     margin-left: 20px;
     font-size: 20px;
+    outline: none;
+}
 
+.tweetBox__imageInput {
+    border: none;
+    padding: 10px;
+    outline: none;
 }
 
 .tweetBox__postButton {
