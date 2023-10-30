@@ -10,8 +10,10 @@ import ListAltIcon from '@mui/icons-material/ListAlt';
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import PeopleOutlineIcon from '@mui/icons-material/PeopleOutline';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
-import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import { Button } from '@mui/material';
+import UserBadge from './UserBadge';
+import LogoutIcon from '@mui/icons-material/Logout';
+
 
 
 function MenuColumn() {
@@ -25,14 +27,10 @@ function MenuColumn() {
         <MenuColumnOption Icon= {ListAltIcon} text="Lists" />
         <MenuColumnOption Icon= {BookmarkBorderIcon} text="Bookmarks" />
         <MenuColumnOption Icon= {PeopleOutlineIcon} text="Communities" />
-        <MenuColumnOption Icon= {ClearIcon} text="Premium" />
         <MenuColumnOption Icon= {PersonOutlineIcon} text="Profile" />
-        <MenuColumnOption Icon= {MoreHorizIcon} text="More" />
+        <MenuColumnOption Icon= {LogoutIcon} text="Logout" />
         <Button variant="outlined" className="menucolumn__postButton" fullWidth>Post</Button>
-
-
-        
-        {/* Post Button */}
+        <UserBadge className="userBadge"/>
 
     </div>
   )
