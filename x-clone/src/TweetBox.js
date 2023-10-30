@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import'./TweetBox.css'
 import {Avatar, Button } from '@mui/material'
 import db from './firebase';
-import { collection, addDoc } from 'firebase/firestore/lite';
+import { collection, addDoc } from 'firebase/firestore';
 
 function TweetBox() {
   const [tweetMessage, setTweetMessage] = useState('');

@@ -3,7 +3,7 @@ import './Feed.css'
 import TweetBox from './TweetBox.js'
 import Tweet from './Tweet'
 import db from './firebase'
-import { collection, getDocs } from 'firebase/firestore/lite';
+import { collection, getDocs } from 'firebase/firestore';
 
 
 function Feed() {
