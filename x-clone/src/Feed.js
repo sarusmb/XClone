@@ -3,16 +3,16 @@ import './Feed.css'
 import TweetBox from './TweetBox.js'
 import Tweet from './Tweet'
 import db from './firebase'
-import { collection, getDocs } from 'firebase/firestore';
+import { collection, onSnapshot } from 'firebase/firestore';
 
 
 function Feed() {
   const [tweets, setTweets] = useState([]);
 
   useEffect(() => {
-    getDocs(collection(db,'tweets')).then((snapshot) => (
+    onSnapshot(collection(db,'tweets'), snapshot => {
       setTweets(snapshot.docs.map(doc => doc.data()))
-    ))
+    })
   }, [])
 
   return (
