@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import'./TweetBox.css'
 import {Avatar, Button } from '@mui/material'
 import db from './firebase';
-import { collection, addDoc } from 'firebase/firestore';
+import { setDoc, doc } from 'firebase/firestore';
+import uuid from 'react-uuid';
 
 function TweetBox() {
   const [tweetMessage, setTweetMessage] = useState('');
@@ -10,14 +11,19 @@ function TweetBox() {
 
   const sendTweet = e => {
     e.preventDefault();
-    addDoc(collection(db, "tweets"), {
+    const id = uuid();
+    const data = {
+      tweetId: id,
       displayName: "Anon User",
       userName: "anonUser123",
       avatar: "",
       verified: true, 
       text: tweetMessage, 
       image: tweetImage,
-    });
+      likes: 0,
+    };
+    setDoc(doc(db, "tweets", id), data);
+
     setTweetMessage("");
     setTweetImage("");
   } 

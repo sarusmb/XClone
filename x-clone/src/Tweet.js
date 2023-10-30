@@ -1,9 +1,12 @@
-import React from 'react'
+import { React, useState} from 'react'
 import './Tweet.css'
-import {Avatar } from '@mui/material'
+import { Avatar, IconButton } from '@mui/material'
 import VerifiedIcon from '@mui/icons-material/Verified';
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import { doc, updateDoc } from "firebase/firestore";
+import db from './firebase';
 
 
 function Tweet({
@@ -13,7 +16,26 @@ function Tweet({
   verified,
   text,
   image,
+  likes,
+  tweetId,
 }) {
+  const [isLiked, setIsLiked] = useState(false);
+
+  const updateLikeCount = e => {
+
+    const tweetToUpdate = doc(db, "tweets", tweetId);
+    if (!isLiked ) {
+      updateDoc(tweetToUpdate, {
+        likes: likes + 1
+      })
+      setIsLiked(true); 
+    } else {
+      updateDoc(tweetToUpdate, {
+        likes: likes - 1
+      })
+      setIsLiked(false)
+    }
+  }
   return (
     <div className="tweet">
       <div className="tweet__avatar">
@@ -35,10 +57,18 @@ function Tweet({
             <p>{text}</p>
           </div>
         </div>
-        <img src={image}/> 
+       {image && <img src={image}/> }
         <div className="tweet__footer">
-          <FavoriteBorderIcon fontSize="small" />
-          <ChatBubbleOutlineIcon fontSize="small" />
+          <IconButton onClick={updateLikeCount} className="favoriteButton">
+            {!isLiked && <FavoriteBorderIcon />}
+            {isLiked && <FavoriteIcon className='favoriteButton_heartFill'/>}
+            {likes}
+          </IconButton>
+
+          <IconButton>
+            <ChatBubbleOutlineIcon fontSize='medium'/>
+          </IconButton>
+
         </div>
       </div>
 

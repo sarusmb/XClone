@@ -22,6 +22,14 @@
     margin-top: 10px;
 }
 
+.favoriteButton {
+    font-size: large;
+}
+
+.favoriteButton_heartFill{
+    color: red;
+}
+
 .tweet__verifiedIcon {
     color: #00acee;
     font-size: 15px !important;

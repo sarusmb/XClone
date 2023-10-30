@@ -30,6 +30,8 @@ function Feed() {
         verified= { tweet.verified}  
         text= { tweet.text }  
         image={ tweet.image }
+        likes={tweet.likes}
+        tweetId={tweet.tweetId}
         />
        ))}
        
