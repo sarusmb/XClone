@@ -23,7 +23,7 @@
 }
 
 .favoriteButton {
-    font-size: large;
+    font-size: medium !important;
 }
 
 .favoriteButton_heartFill{
