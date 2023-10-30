@@ -2,13 +2,3 @@ body {
     --x_gray: #e1e8ed;
     --twitter_blue: #00acee;
 }
-
-.app {
-    display: flex;
-    height: 100vh;
-    max-width: 1300px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0 10px;
-
-}

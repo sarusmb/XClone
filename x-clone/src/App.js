@@ -1,16 +1,21 @@
 
 import './App.css';
-import MenuColumn from './MenuColumn';
-import Feed from './Feed';
-import Widgets from './Widgets';
+import HomePage from './HomePage';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
 
 
 function App() {
   return (
-    <div className="app">
-      <MenuColumn/>
-      <Feed/>
-      <Widgets/>
+    <div className='app'>
+      <Router>
+        <Routes>
+          <Route path="/homePage" element={<HomePage />} />
+        </Routes>
+      </Router> 
     </div>
   );
 }
