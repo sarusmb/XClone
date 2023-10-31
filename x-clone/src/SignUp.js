@@ -37,9 +37,7 @@ export default function SignUp() {
             alignItems: 'center',
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'black' }}>
-            <ClearIcon />
-          </Avatar>
+          <Avatar src="https://logowik.com/content/uploads/images/twitter-x5265.logowik.com.webp"/>
           <Typography component="h1" variant="h5">
             Sign up
           </Typography>

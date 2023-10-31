@@ -1,7 +1,6 @@
 import React from 'react'
 import './MenuColumn.css'
 import MenuColumnOption from './MenuColumnOption';
-import ClearIcon from '@mui/icons-material/Clear';
 import HomeIcon from '@mui/icons-material/Home';
 import SearchIcon from '@mui/icons-material/Search';
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
@@ -10,7 +9,7 @@ import ListAltIcon from '@mui/icons-material/ListAlt';
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import PeopleOutlineIcon from '@mui/icons-material/PeopleOutline';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
-import { Button } from '@mui/material';
+import { Avatar, Button } from '@mui/material';
 import UserBadge from './UserBadge';
 import LogoutIcon from '@mui/icons-material/Logout';
 
@@ -19,7 +18,7 @@ import LogoutIcon from '@mui/icons-material/Logout';
 function MenuColumn() {
   return (
     <div className="menucolumn">
-        <ClearIcon className="menucolumn__XIcon"/>
+        <Avatar className="menucolumn__XIcon" src="https://logowik.com/content/uploads/images/twitter-x5265.logowik.com.webp"/>
         <MenuColumnOption active Icon= {HomeIcon} text="Home" />
         <MenuColumnOption Icon= {SearchIcon} text="Explore" />
         <MenuColumnOption Icon= {NotificationsNoneIcon} text="Notifications" />
