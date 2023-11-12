@@ -2,21 +2,44 @@ import React, { useState } from 'react'
 import'./TweetBox.css'
 import {Avatar, Button } from '@mui/material'
 import db from './firebase';
-import { setDoc, doc } from 'firebase/firestore';
+import { setDoc, doc, getDoc } from 'firebase/firestore';
 import uuid from 'react-uuid';
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 function TweetBox() {
   const [tweetMessage, setTweetMessage] = useState('');
   const [tweetImage, setTweetImage] = useState('');
+  const [profilePicture, setProfilePicture] = useState('');
+ 
+  let userData;
+ 
+  const auth = getAuth();
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+   
+      const uid = user.uid;
+      console.log(uid);
+
+      // get the user document
+      const userRef = doc(db, "users", uid);
+      getDoc(userRef).then((doc) => {
+        userData = doc.data();
+        setProfilePicture(doc.data().profilePicture); 
+      })
+
+    } else {
+      window.alert("Please sign in");
+    }
+  });
 
   const sendTweet = e => {
     e.preventDefault();
     const id = uuid();
     const data = {
       tweetId: id,
-      displayName: "Anon User",
-      userName: "anonUser123",
-      avatar: "",
+      displayName: userData.firstName + " " + userData.lastName,
+      userName: userData.userName,
+      avatar: profilePicture,
       verified: true, 
       text: tweetMessage, 
       image: tweetImage,
@@ -32,7 +55,7 @@ function TweetBox() {
     <div className='tweetBox'>
       <form>
         <div className="tweetBox__input">
-          <Avatar/>
+          <Avatar src={profilePicture}/>
           <input 
             onChange={(e) => setTweetMessage(e.target.value)}
             placeholder="What is happening?!" 
