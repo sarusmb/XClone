@@ -10,26 +10,20 @@ function TweetBox() {
   const [tweetMessage, setTweetMessage] = useState('');
   const [tweetImage, setTweetImage] = useState('');
   const [profilePicture, setProfilePicture] = useState('');
- 
-  let userData;
+  const [userInfo, setUserInfo] = useState({});
  
   const auth = getAuth();
   onAuthStateChanged(auth, (user) => {
     if (user) {
    
       const uid = user.uid;
-      console.log(uid);
-
       // get the user document
       const userRef = doc(db, "users", uid);
       getDoc(userRef).then((doc) => {
-        userData = doc.data();
+        setUserInfo(doc.data());
         setProfilePicture(doc.data().profilePicture); 
       })
-
-    } else {
-      window.alert("Please sign in");
-    }
+    } 
   });
 
   const sendTweet = e => {
@@ -37,8 +31,8 @@ function TweetBox() {
     const id = uuid();
     const data = {
       tweetId: id,
-      displayName: userData.firstName + " " + userData.lastName,
-      userName: userData.userName,
+      displayName: userInfo.firstName + " " + userInfo.lastName,
+      userName: userInfo.userName,
       avatar: profilePicture,
       verified: true, 
       text: tweetMessage, 
