@@ -3,15 +3,16 @@ import './Feed.css'
 import TweetBox from './TweetBox.js'
 import Tweet from './Tweet'
 import db from './firebase'
-import { collection, onSnapshot } from 'firebase/firestore';
+import { collection, onSnapshot, orderBy, query } from 'firebase/firestore';
 
 
 function Feed() {
   const [tweets, setTweets] = useState([]);
 
   useEffect(() => {
-    onSnapshot(collection(db,'tweets'), snapshot => {
-      setTweets(snapshot.docs.map(doc => doc.data()))
+    onSnapshot(query(collection(db, "tweets"), orderBy("timeStamp","desc")), (snapshot) => {
+      setTweets(snapshot.docs.map((doc) => doc.data()));
+
     })
   }, [])
 

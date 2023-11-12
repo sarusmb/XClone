@@ -25,7 +25,7 @@ function TweetBox() {
       })
     } 
   });
-
+  
   const sendTweet = e => {
     e.preventDefault();
     const id = uuid();
@@ -38,6 +38,7 @@ function TweetBox() {
       text: tweetMessage, 
       image: tweetImage,
       likes: 0,
+      timeStamp: new Date(),
     };
     setDoc(doc(db, "tweets", id), data);
 
