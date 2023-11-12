@@ -10,22 +10,35 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useNavigate } from "react-router-dom";
-
-
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 const defaultTheme = createTheme();
 
 export default function SignIn() {
+  const navigate = useNavigate();
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+    
+    const auth = getAuth();
+    const email = data.get('email');
+    const password = data.get('password');
+    
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in 
+        const user = userCredential.user;
+        // ...
+        navigate("/homePage");
+      })
+      .catch((error) => {
+        if (error.code == "auth/invalid-login-credentials") {
+          window.alert("Invalid Email and/or Password!", error);
+        } else {
+          window.alert("Login Failed!", error)
+        }
+      });
   };
-
-  const navigate = useNavigate();
 
   return (
     <ThemeProvider theme={defaultTheme}>

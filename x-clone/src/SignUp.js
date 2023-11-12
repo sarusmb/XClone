@@ -6,24 +6,48 @@ import TextField from '@mui/material/TextField';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-import ClearIcon from '@mui/icons-material/Clear';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useNavigate } from "react-router-dom";
+import { getAuth, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import db from './firebase';
+import { setDoc, doc } from 'firebase/firestore';
 
 const defaultTheme = createTheme();
 
 export default function SignUp() {
+  const navigate = useNavigate();
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+    const email = data.get('email');
+    const password = data.get('password');
+   
+    const auth = getAuth();
+    createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      // Signed up 
+      window.alert("Sign Up Successful!");
+      const user = auth.currentUser;
+      const userId = user.uid;
+
+      const userData = {
+        firstName: data.get('firstName'),
+        lastName: data.get('lastName'),
+        userName: data.get('userName'),
+        profilePicture: data.get('profilePicture'),
+        userId: userId,
+        email: email,
+      }
+      setDoc(doc(db, "users", userId), userData);
+
+      navigate("/signIn");
+  }).catch((error) => {
+    window.alert("SignUp Unsuccessful: " + error.message)
+  });
   };
-  const navigate = useNavigate();
 
   return (
     <ThemeProvider theme={defaultTheme}>
