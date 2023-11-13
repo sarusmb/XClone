@@ -10,7 +10,6 @@ import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import PeopleOutlineIcon from '@mui/icons-material/PeopleOutline';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import { Avatar } from '@mui/material';
-import UserBadge from './UserBadge';
 import LogoutIcon from '@mui/icons-material/Logout';
 
 function MenuColumn() {
@@ -26,7 +25,6 @@ function MenuColumn() {
         <MenuColumnOption Icon= {PeopleOutlineIcon} text="Communities" />
         <MenuColumnOption Icon= {PersonOutlineIcon} text="Profile" />
         <MenuColumnOption Icon= {LogoutIcon} text="Logout" logoutEvent/>
-        <UserBadge className="userBadge"/>
     </div>
   )
 }
