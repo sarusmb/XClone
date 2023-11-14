@@ -13,6 +13,7 @@ function TweetBox() {
   const [lastName, setLastName] = useState('');
   const [userName, setUserName] = useState('');
   const [profilePicture, setProfilePicture] = useState('');
+  const [userId, setUserId] = useState('');
   
   const auth = getAuth();
   onAuthStateChanged(auth, (user) => {
@@ -25,6 +26,7 @@ function TweetBox() {
         setLastName(doc.data().lastName);
         setUserName(doc.data().userName);
         setProfilePicture(doc.data().profilePicture);
+        setUserId(uid);
       })
     } 
   });
@@ -42,6 +44,7 @@ function TweetBox() {
       image: tweetImage,
       likes: 0,
       timeStamp: new Date(),
+      userId: userId,
     };
     setDoc(doc(db, "tweets", id), data);
 

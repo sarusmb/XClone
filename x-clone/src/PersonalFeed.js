@@ -15,6 +15,7 @@ function PersonalFeed() {
   const [lastName, setLastName] = useState('');
   const [userName, setUserName] = useState('');
   const [profilePicture, setProfilePicture] = useState('');
+  const [userId, setUserId] = useState('');
   
   const auth = getAuth();
   onAuthStateChanged(auth, (user) => {
@@ -27,12 +28,13 @@ function PersonalFeed() {
         setLastName(doc.data().lastName);
         setUserName(doc.data().userName);
         setProfilePicture(doc.data().profilePicture);
+        setUserId(uid);
       })
     } 
   });
 
   useEffect(() => {
-    onSnapshot(query((collection(db, "tweets")), orderBy("timeStamp","desc"), where("userName","==", userName)), (snapshot) => {
+    onSnapshot(query((collection(db, "tweets")), orderBy("timeStamp","desc"), where("userId","==", userId)), (snapshot) => {
         setTweets(snapshot.docs.map((doc) => doc.data()));
     })
   }, [tweets])
@@ -51,11 +53,11 @@ function PersonalFeed() {
        {tweets.map((tweet) => 
        (
         <Tweet 
-        displayName={ tweet.displayName }
-        userName={ tweet.userName }
-        avatar= { tweet.avatar }
+        displayName={firstName + " " + lastName}
+        userName= {userName}
+        avatar= {profilePicture}
         verified= { tweet.verified}  
-        text= { tweet.text }  
+        text= {tweet.text}  
         image={ tweet.image }
         likes={tweet.likes}
         tweetId={tweet.tweetId}
