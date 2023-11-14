@@ -57,7 +57,7 @@ function Tweet({
             <p>{text}</p>
           </div>
         </div>
-       {image && <img src={image}/> }
+       {image && <img className="imageInput" src={image}/> }
         <div className="tweet__footer">
           <IconButton onClick={updateLikeCount} className="favoriteButton">
             {!isLiked && <FavoriteBorderIcon />}
