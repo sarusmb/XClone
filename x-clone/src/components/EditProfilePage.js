@@ -11,7 +11,7 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useNavigate } from "react-router-dom";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import db from './firebase';
+import db from '../firebase';
 import { doc, updateDoc, getDoc } from 'firebase/firestore';
 
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import'./UserBox.css'
+import'./css/UserBox.css'
 import {Avatar, Button } from '@mui/material'
 
 

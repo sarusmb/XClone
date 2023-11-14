@@ -1,5 +1,5 @@
 import React from 'react'
-import './MenuColumn.css'
+import './css/MenuColumn.css'
 import MenuColumnOption from './MenuColumnOption';
 import HomeIcon from '@mui/icons-material/Home';
 import SearchIcon from '@mui/icons-material/Search';

@@ -1,4 +1,4 @@
-import './HomePage.css';
+import './css/HomePage.css';
 import MenuColumn from './MenuColumn';
 import Feed from './Feed';
 import Widgets from './Widgets';

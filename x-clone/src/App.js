@@ -1,15 +1,15 @@
 
 import './App.css';
-import HomePage from './HomePage';
+import HomePage from './components/HomePage';
 import {
   BrowserRouter as Router,
   Routes,
   Route,
 } from "react-router-dom";
-import SignIn from './SignIn';
-import SignUp from './SignUp';
-import ProfilePage from './ProfilePage';
-import EditProfilePage from './EditProfilePage';
+import SignIn from './components/SignIn';
+import SignUp from './components/SignUp';
+import ProfilePage from './components/ProfilePage';
+import EditProfilePage from './components/EditProfilePage';
 
 
 function App() {

@@ -1,5 +1,5 @@
 import React from 'react';
-import './MenuColumnOption.css';
+import './css/MenuColumnOption.css';
 import { getAuth, signOut } from "firebase/auth";
 import { useNavigate } from 'react-router-dom';
 

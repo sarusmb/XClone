@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import'./TweetBox.css'
+import'./css/TweetBox.css'
 import {Avatar, Button } from '@mui/material'
-import db from './firebase';
+import db from '../firebase';
 import { setDoc, doc, getDoc } from 'firebase/firestore';
 import uuid from 'react-uuid';
 import { getAuth, onAuthStateChanged } from "firebase/auth";

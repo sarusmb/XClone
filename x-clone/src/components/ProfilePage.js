@@ -1,4 +1,4 @@
-import './ProfilePage.css';
+import './css/ProfilePage.css';
 import MenuColumn from './MenuColumn';
 import PersonalFeed from './PersonalFeed';
 import Widgets from './Widgets';
