@@ -9,20 +9,22 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 function TweetBox() {
   const [tweetMessage, setTweetMessage] = useState('');
   const [tweetImage, setTweetImage] = useState('');
- 
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [userName, setUserName] = useState('');
+  const [profilePicture, setProfilePicture] = useState('');
+  
   const auth = getAuth();
-  const userPhotoUrl = auth.currentUser.photoURL;
-  let userInfo;
-  let profilePicture;
   onAuthStateChanged(auth, (user) => {
     if (user) {
-   
       const uid = user.uid;
       // get the user document
       const userRef = doc(db, "users", uid);
       getDoc(userRef).then((doc) => {
-        userInfo = doc.data();
-        profilePicture = doc.data().profilePicture;
+        setFirstName(doc.data().firstName);
+        setLastName(doc.data().lastName);
+        setUserName(doc.data().userName);
+        setProfilePicture(doc.data().profilePicture);
       })
     } 
   });
@@ -32,8 +34,8 @@ function TweetBox() {
     const id = uuid();
     const data = {
       tweetId: id,
-      displayName: userInfo.firstName + " " + userInfo.lastName,
-      userName: userInfo.userName,
+      displayName: firstName + " " + lastName,
+      userName: userName,
       avatar: profilePicture,
       verified: true, 
       text: tweetMessage, 
@@ -51,7 +53,7 @@ function TweetBox() {
     <div className='tweetBox'>
       <form>
         <div className="tweetBox__input">
-          <Avatar src={userPhotoUrl}/>
+          <Avatar src={profilePicture}/>
           <input 
             onChange={(e) => setTweetMessage(e.target.value)}
             placeholder="What is happening?!" 
