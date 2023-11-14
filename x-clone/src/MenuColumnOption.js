@@ -13,7 +13,6 @@ function MenuColumnOption({ active, text, Icon, logoutEvent, profileEvent, homeE
     }
     const logOut = (event) => {
       const auth = getAuth();
-      console.log(auth)
       
       signOut(auth).then(() => {
         navigate("/signIn");

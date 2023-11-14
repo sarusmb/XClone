@@ -1,6 +1,6 @@
 import React from 'react'
 import'./UserBox.css'
-import {Avatar, Button, Icon } from '@mui/material'
+import {Avatar, Button } from '@mui/material'
 
 
 function UserBox({
