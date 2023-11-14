@@ -1,0 +1,39 @@
+.userBox {
+    padding-bottom: 10px;
+    border-bottom: 8px solid var(--x_gray);
+    padding-right: 10px;
+}
+
+.userBox__input {
+    display: flex;
+    padding: 20px;
+}
+
+.userBox__editButton {
+    border-radius: 30px !important;
+    background-color: var(--twitter_blue) !important;
+    border: none !important;
+    font-weight: 900 !important;
+    text-transform: inherit !important;
+    color: white !important;
+    height: 35px !important;
+    width: 95px;
+    margin-left: auto !important;
+
+}
+
+.userBox__details {
+   margin-left: 20px;
+}
+
+.userBox__details > span{
+    display: grid;
+}
+
+.displayName {
+    font-weight: 800;
+    font-size: large;
+}
+.userName {
+    margin-top: 5px;
+}
