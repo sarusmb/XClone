@@ -33,6 +33,17 @@ export default function SignUp() {
       const user = auth.currentUser;
       const userId = user.uid;
 
+      updateProfile(auth.currentUser, {
+        displayName: data.get('firstName') + " " +data.get('lastName') ,
+        photoURL: data.get('profilePicture'),
+      }).then(() => {
+        // Profile updated!
+        // ...
+      }).catch((error) => {
+        //
+        console.log(error);
+      });
+
       const userData = {
         firstName: data.get('firstName'),
         lastName: data.get('lastName'),
