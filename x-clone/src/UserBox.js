@@ -14,7 +14,7 @@ function UserBox({
     <div className='userBox'>
         <div className="userBox__input">
           <Avatar src={profilePicture} sx={{ width: 130, height: 130 }} />
-          <Button  className="userBox__editButton" type="submit">Edit Profile</Button>
+          <Button href="/editProfilePage" className="userBox__editButton" type="submit">Edit Profile</Button>
 
         </div>
         <div className="userBox__details">
