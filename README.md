@@ -2,6 +2,11 @@
 X Clone (formerly known as Twitter) 
 - https://x-clone-d9f9d.firebaseapp.com/
 
+# Demo
+https://youtu.be/SPLv88-o8Uo
+![demo](https://github.com/sarusmb/XClone/blob/main/x-clone/src/demo.gif)
+
+
 # Features
 - Signup to create a user profile
 - Post tweets and like other users tweets
@@ -15,6 +20,3 @@ X Clone (formerly known as Twitter)
 - Integrated Firebase Authentication for easy user signup, sign-in and authentication
 - Deployed using Firebase Hosting
 
-# Demo
-https://youtu.be/SPLv88-o8Uo
-![demo](https://github.com/sarusmb/XClone/blob/main/x-clone/src/demo.gif)
