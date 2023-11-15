@@ -17,13 +17,12 @@
 }
 
 .tweet__footer{
-    display: flex;
-    justify-content: space-evenly;
     margin-top: 10px;
 }
 
 .favoriteButton {
     font-size: medium !important;
+    margin-left: 350px !important;
 }
 
 .favoriteButton_heartFill{

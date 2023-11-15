@@ -64,11 +64,6 @@ function Tweet({
             {isLiked && <FavoriteIcon className='favoriteButton_heartFill'/>}
             {likes}
           </IconButton>
-
-          <IconButton>
-            <ChatBubbleOutlineIcon fontSize='medium'/>
-          </IconButton>
-
         </div>
       </div>
 
