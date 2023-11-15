@@ -34,10 +34,10 @@ function PersonalFeed() {
   });
 
   useEffect(() => {
-    onSnapshot(query((collection(db, "tweets")), orderBy("timeStamp","desc"), where("userId","==", userId)), (snapshot) => {
+    onSnapshot(query((collection(db, "tweets")), orderBy("timeStamp","desc") ), (snapshot) => {
         setTweets(snapshot.docs.map((doc) => doc.data()));
     })
-  }, [tweets])
+  }, [])
 
   return (
     <div className='feed'>
@@ -50,7 +50,7 @@ function PersonalFeed() {
         profilePicture = {profilePicture}
         userName={userName} />
           
-       {tweets.map((tweet) => 
+       {tweets.filter((tweet) => tweet.userId === userId).map((tweet) => 
        (
         <Tweet 
         displayName={firstName + " " + lastName}
