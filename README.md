@@ -17,4 +17,4 @@ X Clone (formerly known as Twitter)
 
 # Demo
 https://youtu.be/SPLv88-o8Uo
-
+![demo](https://github.com/sarusmb/XClone/blob/main/x-clone/src/demo.gif)
